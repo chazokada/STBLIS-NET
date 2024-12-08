@@ -16,3 +16,6 @@
 (Note: this script was adapted from [Graph WaveNet](https://github.com/nnzhan/Graph-WaveNet). The only modification was adding z-score normalization while creating the datasets.)
 
 7) Open the `.ipynb` files and run the notebooks to evaluate the STBLIS-Net models and MLP/KDE baselines.
+
+
+(Note: `adj_mx.pkl`  and `adj_mx_bay.pkl` are copied from the [DCRNN repo](https://github.com/liyaguang/DCRNN)).
