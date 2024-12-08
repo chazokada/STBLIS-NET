@@ -7,7 +7,7 @@
 3) Activate the environrment
 4) Run `mkdir -p data/{METR-LA,PEMS-BAY}` to create `/data/METR-LA` and `/data/PEMS-BAY` directories.
 5) Follow the instructions from the [DCRNN repo](https://github.com/liyaguang/DCRNN) to download the `metr-la.h5` and `pems-bay.h5` datasets. Place the `metr-la.h5` file into the directory `/data/METR-LA/`. Place the `pems-bay.h5` file into the directory `/data/PEMS-BAY/`.
-6) In the root project directory, process the `.h5` file with the following commands:
+6) In the root project directory, process the `.h5` files with the following commands:
 
 `python normalized_generate_training_data.py --output_dir=data/METR-LA --traffic_df_filename=data/METR-LA/metr-la.h5`
 
