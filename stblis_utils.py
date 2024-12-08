@@ -110,8 +110,8 @@ def pad_tensor(tensor, pad_to):
     return padded_tensor
 
 # Function to plot outputs from the model
-def plot_time_series(sample_index, node_index, input_series, actual_series, predicted_series, num_timesteps, num_nodes, output_dim, mean_ind_dict, std_ind_dict, zscore=False):
-    plt.figure(figsize=(10, 6))
+def plot_time_series(sample_index, node_index, input_series, actual_series, predicted_series, num_timesteps, num_nodes, output_dim, mean_ind_dict, std_ind_dict, zscore=False, save_fig=False):
+    plt.figure(figsize=(10, 3))
 
     # Plot the input time series (last num_timesteps timesteps before prediction)
     input_series = input_series[sample_index].view(-1, num_nodes, num_timesteps).numpy().squeeze(0)
@@ -144,8 +144,14 @@ def plot_time_series(sample_index, node_index, input_series, actual_series, pred
     # Title and labels
     plt.title(f'Time Series for Sample {sample_index}, Node {node_index}')
     plt.xlabel('Time (mins)')
-    plt.ylabel('Value')
+    if not zscore:
+        plt.ylabel('Speed (MPH)')
+    else:
+        plt.ylabel('Speed (Normalized)')
     plt.legend()
+    if save_fig:
+        save_name = f"sample_{sample_index}_node_{node_index}_timeseries_pred.png"
+        plt.savefig(save_name, dpi=300, bbox_inches='tight')
     plt.show()
 
 # Transforms data that is z-score normalized back to original values
