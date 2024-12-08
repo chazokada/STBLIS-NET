@@ -133,17 +133,17 @@ def plot_time_series(sample_index, node_index, input_series, actual_series, pred
     predicted_with_input = np.concatenate((input_series[node_index, :], predicted_series))
 
     # Plot the input series, actual series, and predicted series with dashed lines
-    plt.plot(range(num_timesteps + output_dim), predicted_with_input, 'k:')
-    plt.plot(range(num_timesteps + output_dim), actual_with_input, 'k--')
+    plt.plot(range(0, 5 *  (num_timesteps + output_dim), 5), predicted_with_input, 'k:')
+    plt.plot(range(0, 5 * (num_timesteps + output_dim), 5), actual_with_input, 'k--')
     
     # Scatter the input, actual, and predicted series
-    plt.scatter(range(num_timesteps), input_series[node_index, :], c='black', marker="o", label='Input Series', zorder=5)
-    plt.scatter(range(num_timesteps, num_timesteps + output_dim), actual_series, c='black', marker="^", label='Actual Series', zorder=5)
-    plt.scatter(range(num_timesteps, num_timesteps + output_dim), predicted_series, c='black', marker="x", label='Predicted Series', zorder=10)
+    plt.scatter(range(0, 5 * num_timesteps, 5), input_series[node_index, :], c='black', marker="o", label='Input Series', zorder=5)
+    plt.scatter(range(5 * num_timesteps, 5 *(num_timesteps + output_dim), 5), actual_series, c='black', marker="^", label='Actual Series', zorder=5)
+    plt.scatter(range(5 * num_timesteps, 5 * (num_timesteps + output_dim), 5), predicted_series, c='black', marker="x", label='Predicted Series', zorder=10)
 
     # Title and labels
     plt.title(f'Time Series for Sample {sample_index}, Node {node_index}')
-    plt.xlabel('Time Step')
+    plt.xlabel('Time (mins)')
     plt.ylabel('Value')
     plt.legend()
     plt.show()
